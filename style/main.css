@@ -1,0 +1,27 @@
+body {
+    background-image: url('../img/background.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    margin: 20px;
+}
+a {
+    text-decoration: none;
+    color: #83f8c9;
+    outline: none;
+}
+a.fake {color: #ffefef;}
+div.main-window {
+    box-shadow: rgb(0 0 0 / 50%) 2px 2px 8px;
+    border-radius: 10px;
+    padding: 15px 30px;
+    margin: auto;
+    width: fit-content;
+    border: rgb(127 127 127 / 30%) solid 2px;
+    background-color: rgb(11 18 19 / 19%);
+    backdrop-filter: blur(10px);
+    color: #ffefef;
+}
+li::marker {
+    color: #83f8c9;
+}

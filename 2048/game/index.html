@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>Advanced 2048</title>
+
+  <link href="files/main.css" rel="stylesheet" type="text/css">
+  <link href="../../style/main.css" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="files/favicon.ico">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div class="main-window" style="margin: 80px auto">
+    <div class="container">
+      <div class="heading">
+        <h1 class="title"></h1>
+        <div class="scores-container"></div>
+      </div>
+      <div class="game-body"></div>
+      <p class="game-explanation">
+        <strong class="important">How to play:</strong>
+        <ul>
+          <li><strong>Press arrow / WASD / TFGH / IJKL keys</strong> or <strong>slide on your touch screen</strong> to move the tiles.</li>
+          <li>When two tiles with the same value touch, they merge into one and the value of the merged tile is the original value added one.</li>
+          <li>When a tile with the pattern "+=<i>x</i>" or "-=<i>x</i>" and another tile with value <i>y</i> touch, they merge into one and the value of the merged tile is <i>x+y</i> or <i>x-y</i>.</li>
+        </ul>
+        </p>
+      <hr>
+      <p>
+        _luanyi_'s 2048 set add by <a href="https://www.luogu.com.cn/user/300313">_luanyi_</a>.<br>
+        Spiritual support provided by cutest <a onclick="notfound();" title="click to bully her">[data deleted]</a>!<br>
+        Based on <a href="http://qiyuuu.com/">Baiqiang</a>.<br>
+        Created by <a href="http://gabrielecirulli.com/" target="_blank">Gabriele Cirulli</a>.<br>
+        Based on <a href="https://itunes.apple.com/us/app/1024!/id823499224" target="_blank">1024 by Veewo Studio</a>.<br>
+        Conceptually similar to <a href="http://asherv.com/threes/" target="_blank">Threes by Asher Vollmer</a>.<br>
+      </p>
+    </div>
+  </div>
+
+  <script src="files/loader.js"></script>
+  <script src="files/base.js"></script>
+  <script src="files/html_actuator.js"></script>
+  <script src="files/game_manager.js"></script>
+  <script src="files/main_manager.js"></script>
+  <script src="files/application.js"></script>
+</body></html>

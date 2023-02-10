@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://cdn.luogu.com.cn/upload/usericon/300313.png">
+    <link rel="stylesheet" href="../style/main.css">
+    <title>_luanyi_的小破站</title>
+    <style>
+        li.none-marker::marker {
+            font-size: 0;
+        }
+        ul {
+            padding-inline-start: 15px;
+            margin-block-start: 0.2em;
+        }
+        .choice {
+            color: #83f8c9;
+        }
+        .marker-summary {
+            list-style-type: disc;
+            margin-left : 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-window" style="min-width: 350px;">
+        <p>欢迎访问 <b>_luanyi_</b> 的小破站。</p>
+        <p>您现在正在 <b class = "NowLocation"> 2048 </b>。</p>
+        <p>请选择您的英雄：</p>
+        <details class="choice">
+            <summary>2048</summary>
+            <ul class="all"></ul>
+        </details>
+        <p>或者 <a href="..">返回上级</a> 。</p>
+        <p>TIP：如果你发现你被骗了，多试几次，总有一次不会被骗。</p>
+    </div>
+    <script>
+        var MXcores = 5;
+        var MXthreads = 3;
+        var MXmainlines = 5;
+        var MXsize = 7;
+        var MXop = 4;
+
+        var Ch = {
+            1 : '单',
+            2 : '双',
+            3 : '三',
+            4 : '四',
+            5 : '五',
+        }
+        var OP = {
+            1 : 'easy',
+            2 : 'normal',
+            3 : 'hard',
+            4 : 'insane',
+        }
+        function getname (s) {return Ch[s[0]] + '核' + Ch[s[1]] + '线程' + Ch[s[2]] + '主线 ' + s[3] + 'x' + s[3];}
+        for (let c = 1; c <= MXcores; c++) {
+            let cli = document.createElement('li');
+            cli.classList.add ('none-marker');
+            let cd = document.createElement('details');
+            let csum = document.createElement('summary');
+            let cname = Ch[c] + '核';
+            csum.innerHTML = cname;
+            cd.appendChild(csum);
+            let cul = document.createElement('ul');
+            
+            for (let t = 1; t <= MXthreads; t++) {
+                let dli = document.createElement('li');
+                dli.classList.add ('none-marker');
+                let dd = document.createElement('details');
+                let dsum = document.createElement('summary');
+                let dname = cname + Ch[t] + '线程';
+                dsum.innerHTML = dname;
+                dd.appendChild(dsum);
+                let dul = document.createElement('ul');
+                
+                for (let m = 1; m <= MXmainlines; m++) {
+                    let mli = document.createElement('li');
+                    mli.classList.add ('none-marker');
+                    let md = document.createElement('details');
+                    let msum = document.createElement('summary');
+                    let mname = dname + Ch[m] + '主线';
+                    msum.innerHTML = mname;
+                    md.appendChild(msum);
+                    let mul = document.createElement('ul');
+                    
+                    for (let s = 4; s <= MXsize; s++) {
+                        let sli = document.createElement('li');
+                        sli.classList.add ('none-marker');
+                        let sd = document.createElement('details');
+                        let ssum = document.createElement('summary');
+                        let sname = mname + ' ' + s + 'x' + s;
+                        ssum.innerHTML = sname;
+                        sd.appendChild(ssum);
+                        let sul = document.createElement('ul');
+
+                        sul.classList.add ('marker-summary');
+
+                        for (let o = 1; o <= MXop; o++) {
+                            let oli = document.createElement('li');
+                            let oname = sname + ' ' + OP[o];
+                            
+                            let a = document.createElement('a');
+                            a.classList.add ('goto-game');
+                            a.innerHTML = oname;
+                            a.href = 'game/index.html?type=' + c + t + m + s + o;
+                            oli.appendChild (a);
+
+                            sul.appendChild (oli);
+                        }
+
+                        sd.appendChild (sul);
+                        sli.appendChild (sd);
+                        mul.appendChild (sli);
+                    }
+                    
+                    md.appendChild (mul);
+                    mli.appendChild (md);
+                    dul.appendChild (mli);
+                }
+                
+                dd.appendChild (dul);
+                dli.appendChild (dd);
+                cul.appendChild (dli);
+            }
+            
+            cd.appendChild (cul);
+            cli.appendChild (cd);
+            document.querySelector('.all').append(cli);
+        }
+        var dict = {};
+        var op = document.querySelectorAll('.goto-game');
+        var len = op.length;
+        for (let i = 1; i <= parseInt(len / 10, 10); i++) {
+            let rd = Math.random () * len;
+            rd = parseInt (rd, 10);
+            if (dict[rd] != null) {
+                i--;
+                continue;
+            } dict[rd] = 1;
+            op[rd].href="https://www.bilibili.com/video/BV1GJ411x7h7";
+        }
+    </script>
+</body>
+</html>
